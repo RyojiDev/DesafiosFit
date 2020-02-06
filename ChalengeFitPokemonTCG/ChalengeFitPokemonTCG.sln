@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChalengeFitPokemonTCG", "ChalengeFitPokemonTCG\ChalengeFitPokemonTCG.csproj", "{5159051A-1EA2-414A-A7A1-3A698C9C471E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5159051A-1EA2-414A-A7A1-3A698C9C471E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5159051A-1EA2-414A-A7A1-3A698C9C471E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5159051A-1EA2-414A-A7A1-3A698C9C471E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5159051A-1EA2-414A-A7A1-3A698C9C471E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {746E7E0F-C756-465C-93E9-4EC0946A6C3C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,4 @@
+C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\C#\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\bin\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.exe
+C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\C#\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.csprojAssemblyReference.cache
+C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\C#\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.AssemblyInfoInputs.cache
+C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\C#\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.AssemblyInfo.cs
