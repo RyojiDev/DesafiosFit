@@ -3378,11 +3378,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\C#\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
+      "projectUniqueName": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
       "projectName": "ChalengeFitPokemonTCG",
-      "projectPath": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\C#\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
+      "projectPath": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
       "packagesPath": "C:\\Users\\ryoji.kitano\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\C#\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\obj\\",
+      "outputPath": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ryoji.kitano\\AppData\\Roaming\\NuGet\\NuGet.Config",
