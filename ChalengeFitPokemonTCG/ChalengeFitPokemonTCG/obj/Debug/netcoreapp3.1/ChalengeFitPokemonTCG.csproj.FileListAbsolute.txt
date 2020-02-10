@@ -16,3 +16,17 @@ C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\DesafiosFit\ChalengeFitPokemonTCG
 C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.csproj.CopyComplete
 C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.dll
 C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.pdb
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\bin\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.exe
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\bin\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.deps.json
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\bin\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.runtimeconfig.json
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\bin\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.runtimeconfig.dev.json
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\bin\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.dll
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\bin\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.pdb
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.csprojAssemblyReference.cache
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.AssemblyInfoInputs.cache
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.AssemblyInfo.cs
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.csproj.CopyComplete
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.dll
+D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.pdb
