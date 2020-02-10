@@ -3373,27 +3373,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Iesu Sama Aishiteiru\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\ryoji.kitano\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\C#\\Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
+      "projectUniqueName": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
       "projectName": "ChalengeFitPokemonTCG",
-      "projectPath": "D:\\Projetos\\C#\\Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
-      "packagesPath": "C:\\Users\\Iesu Sama Aishiteiru\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\C#\\Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\obj\\",
+      "projectPath": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
+      "packagesPath": "C:\\Users\\ryoji.kitano\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Iesu Sama Aishiteiru\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\ryoji.kitano\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
