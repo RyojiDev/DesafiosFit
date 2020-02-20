@@ -41,6 +41,10 @@
             "HtmlAgilityPack": {
               "target": "Package",
               "version": "[1.11.18, )"
+            },
+            "HtmlAgilityPack.CssSelectors": {
+              "target": "Package",
+              "version": "[1.0.2, )"
             }
           },
           "imports": [

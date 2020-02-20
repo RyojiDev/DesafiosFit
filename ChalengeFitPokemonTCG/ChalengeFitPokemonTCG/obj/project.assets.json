@@ -17,6 +17,20 @@
           "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         }
       },
+      "HtmlAgilityPack.CssSelectors/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack": "1.4.9"
+        },
+        "compile": {
+          "lib/net45/HtmlAgilityPack.CssSelectors.dll": {},
+          "lib/net45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/net45/HtmlAgilityPack.CssSelectors.dll": {},
+          "lib/net45/HtmlAgilityPack.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -948,6 +962,21 @@
         "lib/uap10.0/HtmlAgilityPack.dll",
         "lib/uap10.0/HtmlAgilityPack.pdb",
         "lib/uap10.0/HtmlAgilityPack.pri"
+      ]
+    },
+    "HtmlAgilityPack.CssSelectors/1.0.2": {
+      "sha512": "bB4FeVvcNROENPWQfFSmPQ6q99jGk8ru5QoBB3qnEeaP451fjnqQ0uPuMgmWHAOZIXUAoOQozv/5fEEVSDyIzA==",
+      "type": "package",
+      "path": "htmlagilitypack.cssselectors/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "htmlagilitypack.cssselectors.1.0.2.nupkg.sha512",
+        "htmlagilitypack.cssselectors.nuspec",
+        "lib/net45/HtmlAgilityPack.CssSelectors.dll",
+        "lib/net45/HtmlAgilityPack.CssSelectors.pdb",
+        "lib/net45/HtmlAgilityPack.dll",
+        "lib/net45/HtmlAgilityPack.xml"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -3369,7 +3398,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "HtmlAgilityPack >= 1.11.18"
+      "HtmlAgilityPack >= 1.11.18",
+      "HtmlAgilityPack.CssSelectors >= 1.0.2"
     ]
   },
   "packageFolders": {
@@ -3412,6 +3442,10 @@
           "HtmlAgilityPack": {
             "target": "Package",
             "version": "[1.11.18, )"
+          },
+          "HtmlAgilityPack.CssSelectors": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           }
         },
         "imports": [
@@ -3432,5 +3466,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'HtmlAgilityPack.CssSelectors 1.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "HtmlAgilityPack.CssSelectors",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

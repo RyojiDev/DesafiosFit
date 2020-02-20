@@ -30,3 +30,4 @@ D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\
 D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.csproj.CopyComplete
 D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.dll
 D:\Projetos\C#\Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\obj\Debug\netcoreapp3.1\ChalengeFitPokemonTCG.pdb
+C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\DesafiosFit\ChalengeFitPokemonTCG\ChalengeFitPokemonTCG\bin\Debug\netcoreapp3.1\HtmlAgilityPack.CssSelectors.dll

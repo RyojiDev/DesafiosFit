@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+
 using System;
 using System.Net;
 using System.Linq;
@@ -25,14 +26,14 @@ namespace ChalengeFitPokemonTCG
 
             for (int i = 1; i <= countPage; i++)
             {
-                string pagina = wc.DownloadString("https://www.pokemon.com/us/pokemon-tcg/pokemon-cards/" + i +"?cardName=&cardText=&evolvesFrom=&simpleSubmit=&format=unlimited&hitPointsMin=0&hitPointsMax=340&retreatCostMin=0&retreatCostMax=5&totalAttackCostMin=0&totalAttackCostMax=5&particularArtist=&sort=number&sort=number");
+                string pagina = wc.DownloadString("https://www.pokemon.com/us/pokemon-tcg/pokemon-cards/" + i + "?cardName=&cardText=&evolvesFrom=&simpleSubmit=&format=unlimited&hitPointsMin=0&hitPointsMax=340&retreatCostMin=0&retreatCostMax=5&totalAttackCostMin=0&totalAttackCostMax=5&particularArtist=&sort=number&sort=number");
 
-      
+
 
                 var htmlDocument = new HtmlDocument();
 
                 List<string> link = new List<string>();
-                
+
 
 
                 htmlDocument.LoadHtml(pagina);
@@ -50,71 +51,78 @@ namespace ChalengeFitPokemonTCG
                     string linkpage;
 
 
-                         linkpage = node.InnerHtml;
-                       
+                    linkpage = node.InnerHtml;
 
 
-                        if (linkpage.Contains("<a href="))
-                        {
 
-                            linkpage = linkpage.Substring(linkpage.IndexOf("<a href="), linkpage.IndexOf(">")).Replace("<a href=", "").Replace(">", "").Replace("\"", ""); // node.Descendants().Select
+                    if (linkpage.Contains("<a href="))
+                    {
 
-                            link.Add(linkpage);
+                        linkpage = linkpage.Substring(linkpage.IndexOf("<a href="), linkpage.IndexOf(">")).Replace("<a href=", "").Replace(">", "").Replace("\"", ""); // node.Descendants().Select
 
-                        }
+                        link.Add(linkpage);
+
+                    }
 
 
                 }
 
+
+
+                var htmldocumentLink = new HtmlDocument();
+
+
+
                 foreach (string li in link)
                 {
 
-                
-                string cards = wc2.DownloadString("https://www.pokemon.com" + li);
-
-                    var htmldocumentLink = new HtmlDocument();
+                    string cards = wc2.DownloadString("https://www.pokemon.com" + li);
 
                     htmldocumentLink.LoadHtml(cards);
+
+                    var nodes = htmldocumentLink.QuerySelectorAll(".full-card-information");
 
 
                     try
                     {
 
 
-                        foreach (HtmlNode node in htmldocumentLink.DocumentNode.SelectNodes("/html[1]/body[1]"))
+                        foreach (HtmlNode node in nodes)
                         {
 
-                            var teste = htmldocumentLink.DocumentNode.Descendants().First(x => x.Attributes["class"].Value.Equals("pokemon-abilities")).XPath;
+
 
                             Cards card;
 
-                               if (node.Attributes.Count > 0)
+                            if (node.Attributes.Count > 0)
+                            {
+
+                                name = node.QuerySelector(".card-description h1 ").InnerText;
+
+                                abilities = node.QuerySelector(".stats-footer h3 a").InnerText;
+
+
+                                status = node.QuerySelector(".stats-footer span").InnerText;
+
+                                card = new Cards(i);
+
+
+
+                                pk.Add(new Pokemon(name, abilities, status));
+
+                                foreach (Pokemon pkl in pk)
                                 {
-
-                                    name = node.Descendants().First(x => x.Attributes["class"] != null &&
-                                    x.Attributes["class"].Value.Equals("color-block color-block-gray")).XPath;
-
-                                    abilities = WebUtility.HtmlDecode(node.SelectNodes("/html[1]/body[1]/div[4]/section[1]/div[2]/div[1]/div[2]/h3/div[2]").First().InnerHtml);
-
-
-                                    status = WebUtility.HtmlDecode(node.Descendants().First().SelectNodes("/html[1]/body[1]/div[4]/ section[1]/div[2]/div[1]/div[3]/div[4]/h3").First().InnerHtml);
-
-                                        card = new Cards(i);
+                                    Console.WriteLine("nome: " + pkl.Name);
+                                   
+                                    Console.WriteLine("abilities: " + pkl.Abilities);
+                                    
+                                    Console.WriteLine("status: " + pkl.Status);
+                                    Console.WriteLine();
 
 
-
-                                    pk.Add(new Pokemon(name, abilities, status));
-
-                                    foreach (Pokemon pkl in pk)
-                                    {
-                                        Console.WriteLine(pkl.Name);
-                                        Console.WriteLine(pkl.Abilities);
-                                        Console.WriteLine(pkl.Status);
+                                }
 
 
-                                    }
-
-  
 
                             }
 
@@ -128,7 +136,7 @@ namespace ChalengeFitPokemonTCG
                     }
 
 
-                    
+
                 }
 
 

@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v3.1": {
       "ChalengeFitPokemonTCG/1.0.0": {
         "dependencies": {
-          "HtmlAgilityPack": "1.11.18"
+          "HtmlAgilityPack": "1.11.18",
+          "HtmlAgilityPack.CssSelectors": "1.0.2"
         },
         "runtime": {
           "ChalengeFitPokemonTCG.dll": {}
@@ -25,6 +26,17 @@
           "lib/netstandard2.0/HtmlAgilityPack.dll": {
             "assemblyVersion": "1.11.18.0",
             "fileVersion": "1.11.18.0"
+          }
+        }
+      },
+      "HtmlAgilityPack.CssSelectors/1.0.2": {
+        "dependencies": {
+          "HtmlAgilityPack": "1.11.18"
+        },
+        "runtime": {
+          "lib/net45/HtmlAgilityPack.CssSelectors.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -520,6 +532,13 @@
       "sha512": "sha512-Wdfc2rEy0nr1peawYnOA8aufAo9Z5y16Oz4Rr+NmN8kMB0YBbHO4igYb+a0Px4LX5Ehx2u70dSnU6Be05Tna+w==",
       "path": "htmlagilitypack/1.11.18",
       "hashPath": "htmlagilitypack.1.11.18.nupkg.sha512"
+    },
+    "HtmlAgilityPack.CssSelectors/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bB4FeVvcNROENPWQfFSmPQ6q99jGk8ru5QoBB3qnEeaP451fjnqQ0uPuMgmWHAOZIXUAoOQozv/5fEEVSDyIzA==",
+      "path": "htmlagilitypack.cssselectors/1.0.2",
+      "hashPath": "htmlagilitypack.cssselectors.1.0.2.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
