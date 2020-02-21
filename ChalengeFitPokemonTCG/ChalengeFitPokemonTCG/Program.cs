@@ -23,6 +23,15 @@ namespace ChalengeFitPokemonTCG
 
             var wc = new WebClient();
             var wc2 = new WebClient();
+            var wc3 = new WebClient();
+
+            byte[] vect = wc3.DownloadData("https://assets.pokemon.com/assets/cms2/img/cards/web/BWP/BWP_EN_BW06.png");
+
+            string base64 = Convert.ToBase64String(vect);
+
+            Console.WriteLine(base64);
+
+            
 
             for (int i = 1; i <= countPage; i++)
             {
@@ -42,6 +51,7 @@ namespace ChalengeFitPokemonTCG
                 string name = string.Empty;
                 string abilities = string.Empty;
                 string status = string.Empty;
+                string img = string.Empty;
 
                 var nodeCollection = htmlDocument.GetElementbyId("cardResults").ChildNodes;
 
@@ -80,7 +90,7 @@ namespace ChalengeFitPokemonTCG
 
                     htmldocumentLink.LoadHtml(cards);
 
-                    var nodes = htmldocumentLink.QuerySelectorAll(".full-card-information");
+                    var nodes = htmldocumentLink.QuerySelectorAll("section .card-detail");
 
 
                     try
@@ -104,19 +114,25 @@ namespace ChalengeFitPokemonTCG
 
                                 status = node.QuerySelector(".stats-footer span").InnerText;
 
+                                img = node.QuerySelector("div .card-image").InnerHtml;
+
+
                                 card = new Cards(i);
 
+                                img = card.ConvertAndSplitToBase64(img);
 
 
-                                pk.Add(new Pokemon(name, abilities, status));
+
+                                pk.Add(new Pokemon(name, abilities, status,img));
 
                                 foreach (Pokemon pkl in pk)
                                 {
                                     Console.WriteLine("nome: " + pkl.Name);
-                                   
+
                                     Console.WriteLine("abilities: " + pkl.Abilities);
-                                    
+
                                     Console.WriteLine("status: " + pkl.Status);
+                                    Console.WriteLine("Img link: " + pkl.Img);
                                     Console.WriteLine();
 
 

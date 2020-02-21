@@ -9,19 +9,20 @@ namespace ChalengeFitPokemonTCG.Entities
         
         public string Name { get; set; }
         public string Abilities { get; set; }
-
         public string Status { get; set; }
+        public string Img { get; set; }
 
         public Pokemon()
         {
 
         }
 
-        public Pokemon(string name, string abilities, string status)
+        public Pokemon(string name, string abilities, string status, string img)
         {
             Name = name;
             Abilities = abilities;
             Status = status;
+            Img = img;
         }
 
         

@@ -26,5 +26,16 @@ namespace ChalengeFitPokemonTCG.Entities
         {
             Pokemon.Add(pokemon);
         }
+
+        public string ConvertAndSplitToBase64(string img)
+        {
+           string[] split = img.Split("\"");
+           img = split[1].ToString();
+            byte[] bytesAfterBase64 = Encoding.UTF8.GetBytes(img);
+            string imgBase64 = Convert.ToBase64String(bytesAfterBase64);
+
+
+            return imgBase64;
+        }
     }
 }

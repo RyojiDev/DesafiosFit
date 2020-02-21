@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj": {}
+    "D:\\Projetos\\C#\\Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj": {
+    "D:\\Projetos\\C#\\Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
+        "projectUniqueName": "D:\\Projetos\\C#\\Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
         "projectName": "ChalengeFitPokemonTCG",
-        "projectPath": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
-        "packagesPath": "C:\\Users\\ryoji.kitano\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ryoji.kitano\\Documents\\Ryoji-Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\obj\\",
+        "projectPath": "D:\\Projetos\\C#\\Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG.csproj",
+        "packagesPath": "C:\\Users\\Iesu Sama Aishiteiru\\.nuget\\packages\\",
+        "outputPath": "D:\\Projetos\\C#\\Projetos\\DesafiosFit\\ChalengeFitPokemonTCG\\ChalengeFitPokemonTCG\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ryoji.kitano\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Iesu Sama Aishiteiru\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
