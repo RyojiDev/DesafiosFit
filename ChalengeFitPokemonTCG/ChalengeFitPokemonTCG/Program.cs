@@ -15,17 +15,18 @@ namespace ChalengeFitPokemonTCG
             List<Pokemon> pk = new List<Pokemon>();
             Console.WriteLine("1 - Acesse o site https://www.pokemon.com/us/pokemon-tcg/pokemon-cards/");
             Console.WriteLine("2 - Realize uma sem preencher nenhum campo (clicando em Search)");
+            Console.WriteLine("3 - Salvar em um arquivo unico?");
+            Console.WriteLine("4 - Sim | Não");
+
+            
+            string singleOrAll =  Console.ReadLine();
             Console.Write("3 - Informe abaixo a quantidade de paginas: ");
-
+           
             int countPage = int.Parse(Console.ReadLine());
-
-
 
             var wc = new WebClient();
             var wc2 = new WebClient();
-            
 
-            
 
             for (int i = 1; i <= countPage; i++)
             {
@@ -47,6 +48,7 @@ namespace ChalengeFitPokemonTCG
                 string status = string.Empty;
                 string img = string.Empty;
                 string base64Img = string.Empty;
+                
 
 
                 var nodeCollection = htmlDocument.GetElementbyId("cardResults").ChildNodes;
@@ -56,28 +58,19 @@ namespace ChalengeFitPokemonTCG
                 {
                     string linkpage;
 
-
                     linkpage = node.InnerHtml;
-
-
 
                     if (linkpage.Contains("<a href="))
                     {
 
-                        linkpage = linkpage.Substring(linkpage.IndexOf("<a href="), linkpage.IndexOf(">")).Replace("<a href=", "").Replace(">", "").Replace("\"", ""); // node.Descendants().Select
-
+                        linkpage = linkpage.Substring(linkpage.IndexOf("<a href="), linkpage.IndexOf(">")).Replace("<a href=", "").Replace(">", "").Replace("\"", "");
                         link.Add(linkpage);
 
                     }
 
-
                 }
 
-
-
                 var htmldocumentLink = new HtmlDocument();
-
-
 
                 foreach (string li in link)
                 {
@@ -88,16 +81,10 @@ namespace ChalengeFitPokemonTCG
 
                     var nodes = htmldocumentLink.QuerySelectorAll("section .card-detail");
 
-
                     try
                     {
-
-
                         foreach (HtmlNode node in nodes)
                         {
-
-
-
                             Cards card;
 
                             if (node.Attributes.Count > 0)
@@ -119,45 +106,35 @@ namespace ChalengeFitPokemonTCG
 
                                 base64Img = card.convertBase64Img(img);
 
+                                pk.Add(new Pokemon(name, status, abilities, img, base64Img));
 
-
-
-                                pk.Add(new Pokemon(name, abilities, status,img, base64Img));
-
-                                StreamWriter sw = new StreamWriter(@"C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\DesafiosFit\PokemonJson\json.txt");
+                                StreamWriter sw = new StreamWriter(@"C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\DesafiosFit\PokemonJson\pokemon.json");
 
                                 foreach (Pokemon pkl in pk)
                                 {
-                                   
+
+                                    if(singleOrAll == "sim") { 
                                     var json = JsonConvert.SerializeObject(pkl);
 
-                                    
+
                                     sw.WriteLine(json);
-                                    
+                                    }
+                                    else
+                                    {
 
-
+                                    }
                                 }
 
                                 sw.Close();
-
-
-
                             }
-
-
                         }
-
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("message error" + e.Message);
+
                     }
 
-
-
                 }
-
-
             }
         }
     }
