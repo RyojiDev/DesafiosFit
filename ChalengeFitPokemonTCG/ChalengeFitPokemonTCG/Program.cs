@@ -1,10 +1,10 @@
-﻿using HtmlAgilityPack;
-
+﻿using ChalengeFitPokemonTCG.Entities;
+using HtmlAgilityPack;
+using Newtonsoft.Json;
 using System;
-using System.Net;
-using System.Linq;
 using System.Collections.Generic;
-using ChalengeFitPokemonTCG.Entities;
+using System.IO;
+using System.Net;
 
 namespace ChalengeFitPokemonTCG
 {
@@ -23,13 +23,7 @@ namespace ChalengeFitPokemonTCG
 
             var wc = new WebClient();
             var wc2 = new WebClient();
-            var wc3 = new WebClient();
-
-            byte[] vect = wc3.DownloadData("https://assets.pokemon.com/assets/cms2/img/cards/web/BWP/BWP_EN_BW06.png");
-
-            string base64 = Convert.ToBase64String(vect);
-
-            Console.WriteLine(base64);
+            
 
             
 
@@ -52,6 +46,8 @@ namespace ChalengeFitPokemonTCG
                 string abilities = string.Empty;
                 string status = string.Empty;
                 string img = string.Empty;
+                string base64Img = string.Empty;
+
 
                 var nodeCollection = htmlDocument.GetElementbyId("cardResults").ChildNodes;
 
@@ -121,22 +117,28 @@ namespace ChalengeFitPokemonTCG
 
                                 img = card.ConvertAndSplitToBase64(img);
 
+                                base64Img = card.convertBase64Img(img);
 
 
-                                pk.Add(new Pokemon(name, abilities, status,img));
+
+
+                                pk.Add(new Pokemon(name, abilities, status,img, base64Img));
+
+                                StreamWriter sw = new StreamWriter(@"C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\DesafiosFit\PokemonJson\json.txt");
 
                                 foreach (Pokemon pkl in pk)
                                 {
-                                    Console.WriteLine("nome: " + pkl.Name);
+                                   
+                                    var json = JsonConvert.SerializeObject(pkl);
 
-                                    Console.WriteLine("abilities: " + pkl.Abilities);
-
-                                    Console.WriteLine("status: " + pkl.Status);
-                                    Console.WriteLine("Img link: " + pkl.Img);
-                                    Console.WriteLine();
+                                    
+                                    sw.WriteLine(json);
+                                    
 
 
                                 }
+
+                                sw.Close();
 
 
 

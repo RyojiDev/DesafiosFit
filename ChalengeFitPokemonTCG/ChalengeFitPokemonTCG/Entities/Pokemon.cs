@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChalengeFitPokemonTCG.Entities
+﻿namespace ChalengeFitPokemonTCG.Entities
 {
     class Pokemon
     {
@@ -10,19 +6,23 @@ namespace ChalengeFitPokemonTCG.Entities
         public string Name { get; set; }
         public string Abilities { get; set; }
         public string Status { get; set; }
-        public string Img { get; set; }
+        public string LinkImg { get; set; }
+        
+
+        public string Base64Img { get; set; }
 
         public Pokemon()
         {
 
         }
 
-        public Pokemon(string name, string abilities, string status, string img)
+        public Pokemon(string name, string abilities, string status, string img, string base64Img)
         {
             Name = name;
             Abilities = abilities;
             Status = status;
-            Img = img;
+            LinkImg = img;
+            Base64Img = base64Img;
         }
 
         

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Net;
 
 namespace ChalengeFitPokemonTCG.Entities
 {
@@ -30,10 +30,20 @@ namespace ChalengeFitPokemonTCG.Entities
         public string ConvertAndSplitToBase64(string img)
         {
            string[] split = img.Split("\"");
-           img = split[1].ToString();
-            byte[] bytesAfterBase64 = Encoding.UTF8.GetBytes(img);
-            string imgBase64 = Convert.ToBase64String(bytesAfterBase64);
+           var imgLink = split[1].ToString();
 
+           /* byte[] bytesAfterBase64 = Encoding.UTF8.GetBytes(img);
+            string imgBase64 = Convert.ToBase64String(bytesAfterBase64);*/
+
+
+            return imgLink;
+        }
+
+        public string convertBase64Img(string imgUrl)
+        {
+            var wc = new WebClient();
+             byte[] vect = wc.DownloadData(imgUrl);
+            string imgBase64 = Convert.ToBase64String(vect);
 
             return imgBase64;
         }
