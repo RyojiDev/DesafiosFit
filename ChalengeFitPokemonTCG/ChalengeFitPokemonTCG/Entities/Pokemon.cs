@@ -1,30 +1,32 @@
-﻿namespace ChalengeFitPokemonTCG.Entities
+﻿using System.Text;
+
+namespace ChalengeFitPokemonTCG.Entities
 {
     class Pokemon
     {
-        
-        public string Name { get; set; }
+        public string Description { get; set; }
         public string NumberExpansion { get; set; }
         public string Expansion { get; set; }
-        public string LinkImg { get; set; }
-        
+        public string Base64CardImage { get; set; }
 
-        public string Base64Img { get; set; }
-
-        public Pokemon()
+        public Pokemon(string description, string numberExpansion, string expansion, string base64CardImage)
         {
-
-        }
-
-        public Pokemon(string name, string numberExpansion, string expansion, string img, string base64Img)
-        {
-            Name = name;
+            Description = description;
             NumberExpansion = numberExpansion;
             Expansion = expansion;
-            LinkImg = img;
-            Base64Img = base64Img;
+            Base64CardImage = base64CardImage;
         }
 
-        
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"- Description: {Description}")
+                .AppendLine($"- Expansion: {Expansion}")
+                .AppendLine($"- Number Expansion: {NumberExpansion}")
+                .AppendLine($"- Base64 Card Image: {Base64CardImage}");
+
+            return sb.ToString();
+        }
     }
 }

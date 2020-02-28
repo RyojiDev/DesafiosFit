@@ -2,141 +2,103 @@
 using HtmlAgilityPack;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 
 namespace ChalengeFitPokemonTCG
 {
     class Program
     {
+        static bool  arquivosMultiplos = false;
+
+        static void Produce(int pages, ITargetBlock<Pokemon> target)
+        {
+
+            Parallel.For(1, pages + 1, (i) =>
+            {
+                HtmlWeb web = new HtmlWeb();
+
+                var htmlDoc = web.Load(Helper.GetLink(i));
+
+                var nodes = htmlDoc.DocumentNode.QuerySelectorAll("#cardResults > li a");
+
+                Parallel.ForEach(nodes, (item) =>
+                {
+                    var htmlItem = web.Load(Helper.GetLink(0, item.GetAttributeValue("href", "")));
+                    string description = htmlItem.DocumentNode.QuerySelector(".card-description h1").InnerText;
+                    string expansion = htmlItem.DocumentNode.QuerySelector(".stats-footer a").InnerText;
+                    string expansionNumber = htmlItem.DocumentNode.QuerySelector(".stats-footer span").InnerText;
+                    string urlCardImage = htmlItem.DocumentNode.QuerySelector(".card-image img").GetAttributeValue("src", "");
+                    string base64CardImage = Convert.ToBase64String(new HttpClient().GetByteArrayAsync(urlCardImage).Result);
+
+                    target.Post(new Pokemon(description, expansionNumber, expansion, base64CardImage));
+                });
+            });
+
+        }
+
+        static async Task ConsumeAsync(ISourceBlock<Pokemon> source)
+        {
+            BlockingCollection<Pokemon> bag = new BlockingCollection<Pokemon>();
+
+            while(await source.OutputAvailableAsync())
+            {
+                Pokemon data = (Pokemon)source.Receive();
+                bag.Add(data);
+
+                if (!arquivosMultiplos)
+                    await CriarArquivoUnico(bag);
+                else
+                    await CriarArquivMultiplo(bag);
+            }
+        }
         static void Main(string[] args)
         {
-            List<Pokemon> pk = new List<Pokemon>();
+            
             Console.WriteLine("1 - Acesse o site https://www.pokemon.com/us/pokemon-tcg/pokemon-cards/");
             Console.WriteLine("2 - Realize uma sem preencher nenhum campo (clicando em Search)");
-            Console.WriteLine("3 - Salvar em um arquivo unico?");
-            Console.WriteLine("4 - Sim | Não");
-
-            
-            string singleOrAll =  Console.ReadLine();
-            Console.Write("3 - Informe abaixo a quantidade de paginas: ");
-           
+            Console.Write("Entre com o numero de paginas a ser varridas: ");
             int countPage = int.Parse(Console.ReadLine());
+            Console.Write("Você deseja salvar em multiplos arquivos ? (true/false): ");
+            arquivosMultiplos = bool.Parse(Console.ReadLine());
 
-            var wc = new WebClient();
-            var wc2 = new WebClient();
 
+            var buffer = new BufferBlock<Pokemon>();
+            var consumer = ConsumeAsync(buffer);
 
-            for (int i = 1; i <= countPage; i++)
+            Produce(countPage, buffer);
+
+            consumer.Wait();
+           
+        }
+
+        static async Task CriarArquivoUnico(BlockingCollection<Pokemon> list)
+        {
+            using (StreamWriter file = File.CreateText(Helper.GetPath("single_file_pokemons.json")))
             {
-                string pagina = wc.DownloadString("https://www.pokemon.com/us/pokemon-tcg/pokemon-cards/" + i + "?cardName=&cardText=&evolvesFrom=&simpleSubmit=&format=unlimited&hitPointsMin=0&hitPointsMax=340&retreatCostMin=0&retreatCostMax=5&totalAttackCostMin=0&totalAttackCostMax=5&particularArtist=&sort=number&sort=number");
+                var json = JsonConvert.SerializeObject(list);
+                await file.WriteAsync(json);
+            }
+        }
 
-
-
-                var htmlDocument = new HtmlDocument();
-
-                List<string> link = new List<string>();
-
-
-
-                htmlDocument.LoadHtml(pagina);
-
-
-                string name = string.Empty;
-                string abilities = string.Empty;
-                string status = string.Empty;
-                string img = string.Empty;
-                string base64Img = string.Empty;
-                
-
-
-                var nodeCollection = htmlDocument.GetElementbyId("cardResults").ChildNodes;
-
-
-                foreach (HtmlNode node in htmlDocument.GetElementbyId("cardResults").ChildNodes)
+        static async Task CriarArquivMultiplo(BlockingCollection<Pokemon> list)
+        {
+            foreach (var pokemon in list)
+            {
+                using (StreamWriter file = File.CreateText(Helper.GetPath("multiple_file_" + pokemon.Description + ".json")))
                 {
-                    string linkpage;
-
-                    linkpage = node.InnerHtml;
-
-                    if (linkpage.Contains("<a href="))
-                    {
-
-                        linkpage = linkpage.Substring(linkpage.IndexOf("<a href="), linkpage.IndexOf(">")).Replace("<a href=", "").Replace(">", "").Replace("\"", "");
-                        link.Add(linkpage);
-
-                    }
-
-                }
-
-                var htmldocumentLink = new HtmlDocument();
-
-                foreach (string li in link)
-                {
-
-                    string cards = wc2.DownloadString("https://www.pokemon.com" + li);
-
-                    htmldocumentLink.LoadHtml(cards);
-
-                    var nodes = htmldocumentLink.QuerySelectorAll("section .card-detail");
-
-                    try
-                    {
-                        foreach (HtmlNode node in nodes)
-                        {
-                            Cards card;
-
-                            if (node.Attributes.Count > 0)
-                            {
-
-                                name = node.QuerySelector(".card-description h1 ").InnerText;
-
-                                abilities = node.QuerySelector(".stats-footer h3 a").InnerText;
-
-
-                                status = node.QuerySelector(".stats-footer span").InnerText;
-
-                                img = node.QuerySelector("div .card-image").InnerHtml;
-
-
-                                card = new Cards(i);
-
-                                img = card.ConvertAndSplitToBase64(img);
-
-                                base64Img = card.convertBase64Img(img);
-
-                                pk.Add(new Pokemon(name, status, abilities, img, base64Img));
-
-                                StreamWriter sw = new StreamWriter(@"C:\Users\ryoji.kitano\Documents\Ryoji-Projetos\DesafiosFit\PokemonJson\pokemon.json");
-
-                                foreach (Pokemon pkl in pk)
-                                {
-
-                                    if(singleOrAll == "sim") { 
-                                    var json = JsonConvert.SerializeObject(pkl);
-
-
-                                    sw.WriteLine(json);
-                                    }
-                                    else
-                                    {
-
-                                    }
-                                }
-
-                                sw.Close();
-                            }
-                        }
-                    }
-                    catch (Exception e)
-                    {
-
-                    }
-
+                    var json = JsonConvert.SerializeObject(pokemon);
+                    await file.WriteAsync(json);
                 }
             }
         }
+
+
     }
 
 }
